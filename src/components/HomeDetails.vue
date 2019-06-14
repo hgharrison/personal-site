@@ -1,21 +1,31 @@
 <template>
-    <v-container id="aboutme" fluid fill-height class="home-details" style="max-height: 100vh;">
-        <v-layout column>
-            <v-flex  class="display-2 text-xs-center my-5">About</v-flex>
-            <v-flex>
-                <div class="headline mt-3">About Myself</div>
+    <v-container id="aboutme" fluid fill-height class="background-pic" style="max-height: 100vh;">
+        <v-layout row>
+            <v-flex fluid class="profile-pic" style="max-height: 100%">
+            </v-flex>
+            <v-flex fluid style="height:100%" pl-4>
+                <div class="headline font-weight-black black--text text-xs-left mb-3">About Myself</div>
                 <p class="subheading mt-3">Hey there! I’m Hank, a 23 year old French-American software developer living in Austin.</p>
                 <p class="subheading mt-3">Born in Cleveland and raised in Montbard and Houston, I've had the privilege of living abroad throughout the formative years of my life, and pursue schooling in both the French and American systems. I graduated from the Awty International School in Houston with an International Baccalaureate diploma, where I first learned how to program. I was roped into development after thinking that signing up for “computer science” meant I could escape an elective by enrolling in a class where I would learn Photoshop and After Effects – boy I was wrong there. I pursued computer science in college at Baylor University, where I graduated from in the spring of 2018.</p>
                 <p class="subheading mt-3">Since then, I’ve had the pleasure of working in Oracle’s cloud department in Austin, where you can catch me indoor rock climbing, spending unreasonable amounts of money on Cabo Bob’s burritos, or getting crossed out of my shoes at your local basketball court.</p>
-            </v-flex>
-            <v-flex>
-                <div class="headline mt-3">Professional Statement</div>
-                <p class="subheading mt-3">As a developer contributing to the ever-growing world of technology, I’m a self-starter with a strong aptitude for learning.</p>
 
-                <p class="subheading mt-3">My skills are tailored towards Java , C#, and C++ development in fast-paced settings where I can truly hone my abilities. I’ve picked up invaluable soft skills throughout my time in college and the industry, and love developing meaningful and lasting relationships with people. My passion for pushing people towards the best version of themselves in conjunction with my ability to masterfully speak in front of large audiences complement the technical proficiencies I’ve picked up over the years.</p>
+                <GmapMap
+                        :center="{lat:30.2672, lng:97.7431}"
+                        :zoom="7"
 
-                <p class="subheading mt-3">Feel free to shoot me a line or connect with me on LinkedIn!</p>
-
+                        style="width: 100%; height: 100%"
+                        :position="absolute"
+                        :bottom="0"
+                >
+                    <GmapMarker
+                            :key="index"
+                            v-for="(m, index) in markers"
+                            :position="m.position"
+                            :clickable="true"
+                            :draggable="true"
+                            @click="center=m.position"
+                    />
+                </GmapMap>
             </v-flex>
         </v-layout>
     </v-container>
@@ -28,4 +38,17 @@
 </script>
 
 <style scoped>
+    .profile-pic {
+        background: url('https://i.imgur.com/KuHzrea.jpg');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .background-pic{
+        background: url('https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+        background-size: cover;
+    }
 </style>
