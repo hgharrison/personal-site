@@ -8,12 +8,15 @@
 <script>
     import HomeBanner from '@/components/HomeBanner';
     import HomeDetails from '@/components/HomeDetails';
+    import {Carousel, Slide} from 'vue-carousel';
 
     export default {
         name: 'home',
         components: {
             HomeBanner,
-            HomeDetails
+            HomeDetails,
+            Carousel,
+            Slide
         }
     };
 </script>
