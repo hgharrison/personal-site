@@ -1,5 +1,7 @@
 # hank-site
 
+Personal website built in Vue.js with Vuetify.
+
 ## Project setup
 ```
 npm install
