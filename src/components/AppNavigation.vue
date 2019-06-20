@@ -12,10 +12,10 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app color="brown lighten-2" dark>
+        <v-toolbar app color="brown lighten-2" dark id="landingpage">
             <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
-            <v-toolbar-title>{{appTitle}}</v-toolbar-title>
+            <v-btn flat class="hidden-sm-and-down" @click="$vuetify.goTo('#landingpage')">{{appTitle}}</v-btn>
             <v-spacer class="hidden-sm-and-down"></v-spacer>
             <v-btn flat class="hidden-sm-and-down" @click="$vuetify.goTo('#aboutme')">About</v-btn>
             <v-btn flat class="hidden-sm-and-down">RESUME</v-btn>
